@@ -29,7 +29,10 @@ public class UserJWTController {
         this.tokenProvider = tokenProvider;
         this.authenticationManagerBuilder = authenticationManagerBuilder;
     }
-
+    @GetMapping("/test-me")
+    public ResponseEntity<String> test(){
+        return ResponseEntity.ok("I am testing my app successfully");
+    }
     @PostMapping("/authenticate")
     public ResponseEntity<JWTToken> authorize(@Valid @RequestBody LoginVM loginVM) {
         UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(
